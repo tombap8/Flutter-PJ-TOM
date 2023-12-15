@@ -17,15 +17,10 @@ void main(List<String> args) {
   
   showTxt('이순신에 대해 알아볼까요?');
   showTxt('이순신의 마지막 전투는? ${leeFight[2]}${detail[leeFight[2]]}');
+  // 이순신 시리즈 영화 부제목 찍기
   showTxt(makeSubTit(2));
   showTxt(makeSubTit(1));
   showTxt(makeSubTit(0));
-
-  // [ 다트의 널 세이프티(Null Safety) ]
-  // - 개발자가 null 데이터가 생길 경우 에러를 막기 위한
-  // 조치를 다트언어에서 시스템적으로 처리해주는 기법
-  // 1. 널체크 연산자 : ? - 널값 여부체크
-  // 2. 널병합 연산자 : ?? - 널인경우 뒤에 쓴값 출력
 
 
 
@@ -50,6 +45,14 @@ void showTxt(var txt){
 // 전달값은 List상수의 순번값을 받음
 String makeSubTit(int seq){
   return
-  '이순신의 마지막 전투는? ${leeFight[seq]}${detail[leeFight[seq]]}';
+  '영화 "${leeFight[seq]}"의 부제목은? "${
+    subTit[leeFight[seq]]??"부제목 없음"}"';
 } /////// makeSubTit 함수 /////////
+
+  // [ 다트의 널 세이프티(Null Safety) ]
+  // - 개발자가 null 데이터가 생길 경우 에러를 막기 위한
+  // 조치를 다트언어에서 시스템적으로 처리해주는 기법
+  // 1. 널체크 연산자 : ? - 널값 여부체크
+  // 2. 널병합 연산자 : ?? - 널인경우 뒤에 쓴값 출력
+
 
