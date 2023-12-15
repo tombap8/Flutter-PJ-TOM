@@ -21,6 +21,9 @@ void main(List<String> args) {
   showTxt(makeSubTit(2));
   showTxt(makeSubTit(1));
   showTxt(makeSubTit(0));
+  // 이순신 시리즈 영화 주요출연자 찍기
+  // Set 상수를 List로 형변환하여 함수에 전달!
+  showTxt('이순신 시리즈 영화의 주요 출연배우들:${actorList(actors.toList())}');
 
 
 
@@ -33,6 +36,38 @@ void main(List<String> args) {
   final leeFight = ['명량','한산','노량'];
   const detail = {'명량':'해전','한산':'도대첩','노량':'해전'};
   final subTit = {'명량':null,'한산':'용의 출현','노량':'죽음의 바다'};
+
+  // 이순신 시리즈 영화 출연배우들
+  final actors = {
+'박해일',
+    '변요한',
+    '최민식',
+    '안성기',
+    '최민식',
+    '류승룡',
+    '조진웅',
+    '최민식',
+    '김윤석',
+    '김명곤',
+    '진구',
+    '이정현',
+    '김윤석',
+    '김윤석',
+    '백윤식',
+    '김윤석',
+    '정재영',
+    '허준호',
+    '김윤석',
+    '김성규',
+    '이규형',
+    '이무생',
+    '최덕문',
+    '안보현',
+    '박명훈',
+    '안보현',
+    '박훈',
+    '문정희'
+  };
 
 
 // 텍스트 찍기 함수
@@ -48,6 +83,20 @@ String makeSubTit(int seq){
   '영화 "${leeFight[seq]}"의 부제목은? "${
     subTit[leeFight[seq]]??"부제목 없음"}"';
 } /////// makeSubTit 함수 /////////
+
+//// 배우리스트 찍기 함수 ////////
+String actorList(List list){
+  var temp = '';
+  // for문 : for(시;한;증){코드}
+  // 리스트를 순회하는 for문 : for(변수 in 리스트변수){코드}
+  for(var x in list){ // x - list의 개별값 순회
+    temp += '😍$x ';
+  } ////// for /////////
+
+  return temp;
+
+} //////// actorList 함수 /////////
+
 
   // [ 다트의 널 세이프티(Null Safety) ]
   // - 개발자가 null 데이터가 생길 경우 에러를 막기 위한
