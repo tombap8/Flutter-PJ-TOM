@@ -22,12 +22,26 @@ void main(List<String> args) {
   showTxt(makeSubTit(2));
   showTxt(makeSubTit(1));
   showTxt(makeSubTit(0));
+
+
   // 이순신 시리즈 영화 주요출연자 찍기
   // Set 상수를 List로 형변환하여 함수에 전달!
   showTxt('이순신 시리즈 영화의 주요 출연배우들:${
     actorList(actors.toList())}');
 
-} // main /////
+
+  // 다음 추가 이순신 시리즈가 있다면 어느배우를  추천하는가?
+  showTxt('다음 이순신 시리즈가 있다면 추천배우는 공유다!');
+  showTxt('공유의 취미는 ${recommActor['공유']?['취미']}다! 사는곳은 ${recommActor['공유']?['사는곳']}다! 공유의 자동차는 ${recommActor['공유']?['자동차']??"정보없음"}이다!');
+
+
+} /////// main ///////////////////////////////////
+
+// 추천배우 변수
+const recommActor = {
+  '조인성':{'나이':42, '취미':'날기', '사는곳':'아무데나'},
+  '공유':{'나이':45, '취미':'비오게하기', '사는곳':'공유하우스'}
+};
 
 
 // [ 다트의 상수 : final, const ] -> 함수바깥이면 전역변수
