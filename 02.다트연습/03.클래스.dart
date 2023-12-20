@@ -139,8 +139,8 @@ class Dog{
 
 } //////// Dog 클래스 /////
 
-// 야옹이 클래스
-class Cat{
+// 야옹이 클래스 : Pet클래스 상속
+class Cat extends Pet{
   // 클래스 속성들
   // 고양이 이름
   final String name;
@@ -158,7 +158,12 @@ class Cat{
   // 생성자메서드(){} -> 소괄호안에 콤마로 초기값 셋팅함
   // 중괄호를 생략할 수 있음(구현코드가 없다면...)
   // -> 생성자메서드(); 
-  Cat(this.name,this.age,this.color){
+
+  // 상속받은 부모 멤버필드 초기화는 
+  // 이니셜라이즈(initialize) 키워드 콜론(:)을 사용하여
+  // 그 뒤에 super키워드(부모클래스)로 값을 초기화함!
+  // super(초기화값들) -> 부모의 생성자 메서드와 동일!
+  Cat(this.name,this.age,this.color) : super('고양이', '내성적', '생선'){
     print('Cat 생성자함수 코드구역');
   }
 
