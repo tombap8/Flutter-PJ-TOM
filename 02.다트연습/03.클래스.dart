@@ -9,6 +9,19 @@ void main(List<String> args) {
   print('1년후 나의 새로운 강아지 종류명은 ${d1.name}이다');
   // 중요한 것은 클래스의 속성자체의 정의다!
   // 값은 그것을 사용하는 사용자의 등록에 따라 달라질 수 있다!
+  print('내 강아지의 색깔은 ${d1.color}이고 나이는 ${d1.age}살이다!');
+
+  print('훈련1회 실시함! 물기지수 ${d1.traningDog()}%');
+  dynamic doit;
+  for(var i=0;i<10;i++){
+    doit = d1.traningDog();
+  }
+  print('훈련10회실시함! 물기지수는 $doit%');
+
+  // 다른 변수에 Dog 클래스를 생성하여 사용!
+  // 기존 d1과 연결성은 없다!
+  Dog d2 = Dog();
+  print('나의 사랑하는 강아지 종류는 ${d2.name}이다!');
   
 }
 /************************************* 
@@ -38,11 +51,18 @@ class Dog{
   String name = "시바견";
   int age = 8;
   String color = "검정색";
+  // 물기지수
   int bite = 100;
 
   // 클래스 메서드
-  void traningDog(){
+  int traningDog(){
     bite = bite - 5;
+    // 5%~100% 값한계설정
+    if(bite<5) bite = 5;
+    else if(bite>100) bite = 100;
+
+    // 리턴값
+    return bite;
   }
 
 
@@ -51,10 +71,25 @@ class Dog{
 // 야옹이 클래스
 class Cat{
   // 클래스 속성들
-  String name = "먼치킨";
-  int age = 5;
-  String color = "얼룩색";
-  int punch = 100;
+  // 고양이 이름
+  String name;
+  // 고양이 년수
+  int age;
+  // 고양이 색깔
+  String color;
+  int punch=100;
+
+  // 속성들의 값 초기화는 생성하는 코드에서 해준다!
+  // 이것을 해주도록 설정하는 메서드는 무조건 실행되는
+  // 클래스의 필수 메서드인 생성자 메서드에 해준다!
+  // 생성자 메서드는 클래스와 이름이 같음!
+  // this키워드 : 클래스 내부 멤버(속성)을 지칭함!
+  // 생성자메서드(){} -> 소괄호안에 콤마로 초기값 셋팅함
+  // 중괄호를 생략할 수 있음(구현코드가 없다면...)
+  // -> 생성자메서드(); 
+  Cat(this.name,this.age,this.color){
+    print('Cat 생성자함수 코드구역');
+  }
 
   // 클래스 메서드
   void traningCat(){
