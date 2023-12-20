@@ -27,7 +27,7 @@ void main(List<String> args) {
   Cat c1 = Cat("코리안숏헤어", 4, '갈색얼룩');
   print('나의 고양이 종은 ${c1.name}이고 나이는 ${c1.age}살, 색깔은 ${c1.color}이다!');
 
-  c1.name = '이집트고양이';
+  // c1.name = '이집트고양이'; -> final이면 재할당 불가!
   print('나의 고양이종을 다시 말하면 ${c1.name}이다.');
 
 
@@ -67,6 +67,41 @@ class MyClassIsPerfect{
 
 *************************************/
 
+// 애완동물 클래스 : 부모클래스
+class Pet{
+  // 애완동물 종류
+  final String species;
+  // 성격
+  final String character;
+  // 먹이종류
+  final String food;
+
+  Pet(this.species,this.character,this.food){
+    print('부모 Pet 클래스 생성자!');
+  }
+
+  String hearSound(String sp){
+    dynamic retVal;
+    switch(sp){
+      case '고양이': 
+        retVal = '야옹';
+        break;
+      case '강아지': 
+        retVal = '멍멍';
+        break;
+      default: 
+        retVal = '동물소리';
+    } /// switch case ////
+
+    // 리턴코드
+    return retVal;
+  } ///// hearSound 메서드 /////
+
+
+
+} ////////// Pet 클래스 ///////////
+
+
 // 멍멍이 클래스
 class Dog{
   // 클래스 속성들
@@ -94,11 +129,11 @@ class Dog{
 class Cat{
   // 클래스 속성들
   // 고양이 이름
-  String name;
+  final String name;
   // 고양이 년수
-  int age;
+  final int age;
   // 고양이 색깔
-  String color;
+  final String color;
   int punch=100;
 
   // 속성들의 값 초기화는 생성하는 코드에서 해준다!
