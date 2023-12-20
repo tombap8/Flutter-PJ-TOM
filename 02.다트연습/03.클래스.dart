@@ -31,6 +31,15 @@ void main(List<String> args) {
   print('나의 고양이종을 다시 말하면 ${c1.name}이다.');
 
 
+  // 상속 받은 Cat 찍어보기
+  Cat c2 = Cat('페르시안 고양이', 13, "푸른색");
+  print('내 고양이는 ${c2.name}이다. 나이는 ${c2.age}살이다. 울음소리는 ${c2.hearSound(c2.species)}한다! 고양이의 성격은 ${c2.character}이다.');
+
+
+
+
+
+
   // 상수 테스트 : const , final
   const aa = "aa";
   // const bb; -> 선언과 동시에 할당해야함!
