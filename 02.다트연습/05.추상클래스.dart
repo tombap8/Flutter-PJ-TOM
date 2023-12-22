@@ -218,9 +218,6 @@ class JunHo extends Namja with Hobby, Singer{
 
 
 
-
-
-
 //// 테스트를 수행하는 함수 /////
 void testClass(){
   // 추상클래스를 구현한 경수클래스 인스턴스생성
