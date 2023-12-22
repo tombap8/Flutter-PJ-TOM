@@ -130,6 +130,47 @@ late 키워드를 앞에 사용하여 사용직전에
 
  } ////////// JeeHyun 클래스 ///////////
 
+ // 일반적인 남자를 나타내는 클래스 /////////
+ // 추상클래스임! -> 추상클래스를 일반상속한 추상클래스임!
+ abstract class Namja extends Saram {
+  // 생성자
+  Namja(String name) : super(name);
+
+  // 필수재정의는 없고 원하는 것을 재정의함!
+  @override
+  String gender() => '$name씨는 남자다!';
+
+ } //////////// Namja 추상클래스 /////////////
+
+ // 일반적인 여자를 나타내는 클래스 /////////
+ // 추상클래스임! -> 추상클래스를 일반상속한 추상클래스임!
+ abstract class Yeoja extends Saram {
+  // 생성자
+  Yeoja(String name) : super(name);
+
+  // 필수재정의는 없고 원하는 것을 재정의함!
+  @override
+  String gender() => '$name씨는 여자다!';
+
+ } //////////// Yeoja 추상클래스 /////////////
+
+ /////// 박서준 배우의 클래스 /////////////
+ /// 남자 추상클래스를 상속받는다!
+ /// 추상클래스를 일반상속한 클래스는 추상클래스의 미정의 메서드를
+ /// 필수정의 해야하는데 gender() 메서드는 상속받은
+ /// 추상클래스인 Namja에서 이미 재정의 했으므로
+ /// Saram 추상클래스에 남은 재정의 메서드 항목은 age만 남는다!
+ class SeoJun extends Namja {
+  SeoJun(String name) : super(name);
+
+  // 필수재정의 항목 : age()
+  String age() => '$name씨는 39살이다!';
+
+  // 내가 추가로 하고 싶은 재정의하기
+  String eat() => '$name씨는 햄버거를 먹는다!';
+
+ } ///////// SeoJun 클래스 ///////////////
+
 
 //// 테스트를 수행하는 함수 /////
 void testClass(){
@@ -141,6 +182,11 @@ void testClass(){
   print(ks.gender());
   // print(KyungSu().eat());
   // print(KyungSu().say());
+
+  // 추상클래스를 일반 상속받은 지현클래스 인스턴스 생성
+  JeeHyun jh = JeeHyun('남지현');
+  print(jh.age());
+  print(jh.gender());
 
 } ////// testClass /////////////
 
