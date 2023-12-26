@@ -45,10 +45,13 @@ class StorePage extends StatelessWidget {
               padding: const EdgeInsets.all(25.0),
               child: Row(
                 children: [
+                  Spacer(), // 사이공간일정하게 띄기
                   Text(
                     "Woman",
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20.0,
+                    ),
                   ),
                   Spacer(), // 사이공간일정하게 띄기
                   Text(
@@ -60,6 +63,12 @@ class StorePage extends StatelessWidget {
                     ),
                   ),
                   Spacer(), // 사이공간일정하게 띄기
+                  // 이미지로고
+                  Image.asset(
+                    'logo.png',
+                    width: 70.0,
+                  ),
+                  Spacer(),
                   Text(
                     "Shoes",
                     style: TextStyle(
