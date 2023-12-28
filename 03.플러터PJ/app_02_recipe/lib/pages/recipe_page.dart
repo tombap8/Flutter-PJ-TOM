@@ -1,6 +1,8 @@
 // 황금 레시피 페이지홈 클래스 ////
 
 import 'package:flutter/material.dart';
+// 쿠퍼티노 아이콘 사용위해 쿠퍼티노앱 추가
+import 'package:flutter/cupertino.dart';
 
 // 레시피 컴포넌트 불러오기 : 타이틀, 메뉴, 리스트아이템
 import 'package:app_02_recipe/components/recipe_title.dart';
@@ -22,7 +24,44 @@ class RecipePage extends StatelessWidget {
     // 가장 바깥쪽 레이아웃 Scaffold 위젯으로 시작!
     return Scaffold(
       // 전체 배경색 설정하기
-      backgroundColor: Color.fromARGB(189, 3, 168, 8),
+      backgroundColor: Color.fromARGB(186, 106, 126, 253),
+      // 앱바클래스 호출하기
+      appBar: _buildRecipeAppBar(),
     );
   }
 }
+
+// 앱바 클래스 만들기 ////////
+// 리턴형은 AppBar
+// 앱바 메서드 이름은 주로 (언더바_)로 시작함
+AppBar _buildRecipeAppBar() {
+  return AppBar(
+    // 앱바 배경색
+    backgroundColor: const Color.fromARGB(255, 226, 226, 226),
+    // elevation속성 :앱바 그림자효과 조정속성
+    elevation: 1.0,
+    // actions 속성 : 앱바 컨텐츠 파트[리스트형]
+    actions: [
+      // 아이콘 위젯 - Icon
+      Icon(
+        // 아이콘 옵션중 쿠퍼티노가 유명함
+        // 주의: 쿠퍼티노앱 상단 import 추가!
+        CupertinoIcons.search,
+        color: Colors.blueGrey,
+      ),
+      SizedBox(width: 15,),//사이간격박스
+      Icon(
+        CupertinoIcons.heart,
+        color: Colors.redAccent,
+      ),
+    ],
+  );
+} //// _buildRecipeAppBar 메서드 //////
+// 앱바는 앱 최상단 구역을 차지하며
+// 구성요소로는 
+// 1. leading - 앱바 상단왼쪽끝파트
+// 2. title - 앱바 타이틀파트
+// 3. actions - 앱바 컨텐츠파트
+// 4. flexibleSpace - 앱바 하단파트 위 공간
+// -> SafeArea위젯에서 이 공백을 자동조정함!
+// 5. bottom - 앱바 하단파트
