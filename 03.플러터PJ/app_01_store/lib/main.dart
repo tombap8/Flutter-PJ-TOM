@@ -45,7 +45,6 @@ class StorePage extends StatelessWidget {
               padding: const EdgeInsets.all(25.0),
               child: Row(
                 children: [
-                  Spacer(), // 사이공간일정하게 띄기
                   Text(
                     "Woman",
                     style: TextStyle(
@@ -63,12 +62,12 @@ class StorePage extends StatelessWidget {
                     ),
                   ),
                   Spacer(), // 사이공간일정하게 띄기
-                  // 이미지로고
+                  // 로고 이미지 추가! 이미지 위젯사용!
                   Image.asset(
                     'logo.png',
                     width: 70.0,
                   ),
-                  Spacer(),
+                  Spacer(), // 사이공간일정하게 띄기
                   Text(
                     "Shoes",
                     style: TextStyle(
