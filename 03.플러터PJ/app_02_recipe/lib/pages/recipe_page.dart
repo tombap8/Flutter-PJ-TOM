@@ -65,6 +65,7 @@ AppBar _buildRecipeAppBar() {
     ],
   );
 } //// _buildRecipeAppBar 메서드 //////
+
 // 앱바는 앱 최상단 구역을 차지하며
 // 구성요소로는 
 // 1. leading - 앱바 상단왼쪽끝파트
