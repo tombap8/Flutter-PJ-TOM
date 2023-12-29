@@ -40,6 +40,8 @@ class RecipePage extends StatelessWidget {
             RecipeTitle(),
             // 2.레시피 페이지 메뉴
             RecipeMenu(),
+            // 3.레시피 페이지 아이템
+            
           ],
         ),
       ),

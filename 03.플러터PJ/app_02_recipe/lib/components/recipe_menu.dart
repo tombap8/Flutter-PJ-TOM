@@ -59,14 +59,24 @@ Widget _buildMenuItem(IconData mIcon, String text) {
         gradient: LinearGradient(
           // 그라데이션 색상지정
           colors: [
-            Color.fromARGB(255, 255, 248, 121),
-            Color.fromARGB(255, 177, 180, 0),
+            Color.fromARGB(255, 238, 206, 105),
+            Color.fromARGB(255, 193, 133, 19),
+            Color.fromARGB(255, 253, 249, 201),
+            Color.fromARGB(255, 238, 206, 105),
+            Color.fromARGB(255, 255, 249, 184),
           ],
+
           // 각 색상이 어디까지 변화할지 지정(0.0~1.0)
-          stops: [0.2, 0.6],
+          stops: [
+            0.1,
+            0.2,
+            0.4,
+            0.7,
+            0.8,
+          ],
           // 그라데이션 시작위치/끝위치 지정
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         )),
 
     // 3. 박스 하위요소 속성 : 단일요소 -> child

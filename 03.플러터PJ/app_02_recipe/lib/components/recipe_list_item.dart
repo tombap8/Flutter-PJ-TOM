@@ -1,0 +1,38 @@
+// 황금 레시피 리스트 아이템 클래스 //////
+
+import 'package:flutter/material.dart';
+
+// 두개의 값을 전달 받아 처리한다!
+// 1. 이미지이름 / 2. 타이틀
+class RecipeListItem extends StatelessWidget {
+  // 클래스 맴버속성 만들기
+  final String imageName;
+  final String title;
+  // 클래스 호출할때 생성시 이 값을 전달해줌!
+
+  // 맴버 속성을 셋팅하도록 생성자메서드를 변경한다!
+  // key값 전달은 기본이므로 포함하여 변경한다!
+  const RecipeListItem(this.imageName, this.title, {Key? key})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        // 이미지
+        Image.asset(
+          "images/$imageName.jpeg",
+        ),
+        SizedBox(height: 10,), // 사이간격
+        // 텍스트
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        )
+      ],
+    );
+  }
+}
