@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         // fontFamily속성은 하나의 폰트만 적용됨
         // fontFamilyFallback속성이 여러폰트 적용됨
         // fontFamilyFallback: [리스트형 폰트명데이터입력]
-        fontFamilyFallback: ["Diphylleia", "PatuaOne"],
+        fontFamilyFallback: ["PatuaOne","Diphylleia"],
       ),
       // 레시피 홈 클래스 상단에 import후 호출!
       home: RecipePage(),

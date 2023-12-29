@@ -7,11 +7,32 @@ class RecipeMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // 박스형 메뉴 생성 메서드호출
-        _buildMenuItem(Icons.food_bank, '전체')
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+      child: Row(
+        children: [
+          // 박스형 메뉴 생성 메서드호출
+          _buildMenuItem(
+            Icons.food_bank,
+            'All',
+          ),
+          Spacer(),
+          _buildMenuItem(
+            Icons.emoji_food_beverage,
+            'Coffee',
+          ),
+          Spacer(),
+          _buildMenuItem(
+            Icons.fastfood,
+            'Burger',
+          ),
+          Spacer(),
+          _buildMenuItem(
+            Icons.local_pizza,
+            'Pizza',
+          ),
+        ],
+      ),
     );
   }
 }
@@ -24,12 +45,40 @@ Widget _buildMenuItem(IconData mIcon, String text) {
   // 박스를 구성하는 Container 위젯!
   // 박스는 크기를 가진다! 따라서 width,height 속성이필수!
   return Container(
-    // 가로, 세로 크기지정
+    // 1. 가로, 세로 크기지정
     width: 70,
     height: 80,
-    // 박스 세부옵션 설정 - decoration
+
+    // 2. 박스 세부옵션 설정 - decoration
     decoration: BoxDecoration(
-      border: Border.all(color: Colors.black12)
+      border: Border.all(color: Colors.black12),
     ),
+
+    // 3. 박스 하위요소 속성 : 단일요소 -> child
+    child: Column(
+        // 박스 세로정렬 중앙
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          // 3-1. 아이콘
+          Icon(
+            mIcon,
+            color: Colors.redAccent,
+            size: 30,
+          ),
+          // 내가 원하는 크기만큼 사이간격주는
+          // 방법은 SizedBox(width/height)
+          SizedBox(
+            height: 3,
+          ),
+          // 3-2. 글자
+          Text(
+            text,
+            style: TextStyle(
+              color: Colors.red.shade900,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          )
+        ]),
   );
 }
