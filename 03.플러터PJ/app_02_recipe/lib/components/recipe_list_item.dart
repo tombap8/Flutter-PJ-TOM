@@ -23,7 +23,9 @@ class RecipeListItem extends StatelessWidget {
         Image.asset(
           "images/$imageName.jpeg",
         ),
-        SizedBox(height: 10,), // 사이간격
+        SizedBox(
+          height: 10,
+        ), // 사이간격
 
         // 2.텍스트 : 맴버변수 title사용
         Text(
@@ -31,6 +33,15 @@ class RecipeListItem extends StatelessWidget {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
+          ),
+        ),
+
+        // 3. 레시피 소개글
+        Text(
+          "당신은 당신이 직접만든 $title를 가지고 계신가요? 만약없다면 여기 쉽고 훌륭한 $title를 보고 따라해 보세요! 틀림없이 좋은 결과를 만나실 겁니다!",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 14,
           ),
         )
       ],
