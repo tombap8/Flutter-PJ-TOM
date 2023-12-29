@@ -51,7 +51,11 @@ Widget _buildMenuItem(IconData mIcon, String text) {
 
     // 2. 박스 세부옵션 설정 - decoration
     decoration: BoxDecoration(
+        // 보더속성
         border: Border.all(color: Colors.black12),
+        // 보더 라운드 속성
+        borderRadius: BorderRadius.circular(10),
+        // 그라데이션 속성
         gradient: LinearGradient(
           // 그라데이션 색상지정
           colors: [
