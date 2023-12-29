@@ -28,12 +28,12 @@ class RecipePage extends StatelessWidget {
       // 2. 앱바구현 메서드 호출하기
       appBar: _buildRecipeAppBar(),
       // 3. body 구현하기
-      
+
       body: Padding(
         // 상하/좌우 대칭 여백패딩설정(symmetric:대칭적인)
         // symmetric(horizontal:숫자,vertical:숫자)
-        padding: 
-        const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.only(left: 20, right: 20, bottom: 50),
+        // const EdgeInsets.symmetric(horizontal: 20),
         // Column 위젯대신 ListView 위젯을
         // 사용해야 스크롤바 표시가 된다!
         child: ListView(
@@ -71,11 +71,16 @@ AppBar _buildRecipeAppBar() {
         CupertinoIcons.search,
         color: Colors.blueGrey,
       ),
-      SizedBox(width: 15,),//사이간격박스
+      SizedBox(
+        width: 15,
+      ), //사이간격박스
       Icon(
         CupertinoIcons.heart,
         color: Colors.redAccent,
       ),
+      SizedBox(
+        width: 15,
+      ), //사이간격박스
     ],
   );
 } //// _buildRecipeAppBar 메서드 //////
