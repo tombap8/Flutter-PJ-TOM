@@ -51,8 +51,19 @@ Widget _buildMenuItem(IconData mIcon, String text) {
 
     // 2. 박스 세부옵션 설정 - decoration
     decoration: BoxDecoration(
-      border: Border.all(color: Colors.black12),
-    ),
+        border: Border.all(color: Colors.black12),
+        gradient: LinearGradient(
+          // 그라데이션 색상지정
+          colors: [
+            Color.fromARGB(255, 255, 248, 121),
+            Color.fromARGB(255, 177, 180, 0),
+          ],
+          // 각 색상이 어디까지 변화할지 지정(0.0~1.0)
+          stops: [0.2, 0.6],
+          // 그라데이션 시작위치/끝위치 지정
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        )),
 
     // 3. 박스 하위요소 속성 : 단일요소 -> child
     child: Column(
