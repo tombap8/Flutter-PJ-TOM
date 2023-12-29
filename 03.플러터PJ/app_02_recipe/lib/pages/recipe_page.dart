@@ -24,16 +24,24 @@ class RecipePage extends StatelessWidget {
     // 가장 바깥쪽 레이아웃 Scaffold 위젯으로 시작!
     return Scaffold(
       // 1. 전체 배경색 설정하기
-      backgroundColor: Color.fromARGB(186, 106, 126, 253),
-      // 2. 앱바클래스 호출하기
+      backgroundColor: Colors.white,
+      // 2. 앱바구현 메서드 호출하기
       appBar: _buildRecipeAppBar(),
       // 3. body 구현하기
       
-      body: Column(
-        children: [
-          // 레시피 페이지 전체타이틀
-          RecipeTitle(),
-        ],
+      body: Padding(
+        // 상하/좌우 대칭 여백패딩설정(symmetric:대칭적인)
+        // symmetric(horizontal:숫자,vertical:숫자)
+        padding: 
+        const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            // 1.레시피 페이지 전체타이틀
+            RecipeTitle(),
+            // 2.레시피 페이지 메뉴
+            RecipeMenu(),
+          ],
+        ),
       ),
     );
   }
