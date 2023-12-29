@@ -19,12 +19,13 @@ class RecipeListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // 이미지
+        // 1.이미지 : 맴버변수 imageName사용
         Image.asset(
           "images/$imageName.jpeg",
         ),
         SizedBox(height: 10,), // 사이간격
-        // 텍스트
+
+        // 2.텍스트 : 맴버변수 title사용
         Text(
           title,
           style: TextStyle(
