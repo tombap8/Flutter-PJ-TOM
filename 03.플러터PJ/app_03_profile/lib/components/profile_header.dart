@@ -11,8 +11,10 @@ class ProfileHeader extends StatelessWidget {
     // 헤더파트는 가로로 진행하므로 Row를 만들고 리턴함!
     return Row(
       children: [
+        SizedBox(width: 20), // 가로간격
         // 아마타 이미지 위젯함수 호출
         _buildHeaderAvatar(),
+        SizedBox(width: 20), // 가로간격
         // 프로파일 헤더정보 위젯함수 호출
         _buildHeaderProfile(),
       ],
@@ -38,6 +40,9 @@ Widget _buildHeaderAvatar() {
 Widget _buildHeaderProfile() {
   // 정보의 배치가 수직형이므로 Column() 사용!
   return Column(
+    // 기본정렬은 중앙정렬임! 왼쪽정렬변경하기
+    // start - 왼쪽정렬 / end - 오른쪽정렬
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(
         "Jason Grimmer",
@@ -47,7 +52,7 @@ Widget _buildHeaderProfile() {
         ),
       ),
       Text(
-        "Programmer/Designer/Gamer",
+        "Programmer/Designer",
         style: TextStyle(
           fontSize: 20,
         ),
