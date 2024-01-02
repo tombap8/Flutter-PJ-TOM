@@ -14,6 +14,7 @@ class ProfileHeader extends StatelessWidget {
         // 아마타 이미지 위젯함수 호출
         _buildHeaderAvatar(),
         // 프로파일 헤더정보 위젯함수 호출
+        _buildHeaderProfile(),
       ],
     );
   }
@@ -33,5 +34,30 @@ Widget _buildHeaderAvatar() {
   );
 }
 
-
 // 프로파일 헤더정보 위젯함수 만들기 ////////
+Widget _buildHeaderProfile() {
+  // 정보의 배치가 수직형이므로 Column() 사용!
+  return Column(
+    children: [
+      Text(
+        "Jason Grimmer",
+        style: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+      Text(
+        "Programmer/Designer/Gamer",
+        style: TextStyle(
+          fontSize: 20,
+        ),
+      ),
+      Text(
+        "Flutter Programming",
+        style: TextStyle(
+          fontSize: 15,
+        ),
+      ),
+    ],
+  );
+}
