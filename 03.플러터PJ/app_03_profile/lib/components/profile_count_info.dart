@@ -9,6 +9,8 @@ class ProfileCountInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      // 컨텐츠 주변을 일정한 공간으로 채우기
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         // 정보위젯 : _buildInfo()
         // 사이구분선 : _buildLine()
