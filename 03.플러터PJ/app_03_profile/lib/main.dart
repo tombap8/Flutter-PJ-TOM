@@ -33,7 +33,11 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 상단 앱바 만들기 함수 호출
+      // 사이드 박스 드로워는 drawer -> 왼쪽에서 들어옴
+      // endDrawer -> 오른쪽에서 들어옴
+      // endDrawer: ,
+      // 상단 앱바 만들기 함수 호출 : 기본앱바
+      // 드로워가 있으면 햄버거 아이콘이 출력됨!
       appBar: _buildProfileAppBar(),
       // 본문파트인 바디구성하기
       body: Column(
