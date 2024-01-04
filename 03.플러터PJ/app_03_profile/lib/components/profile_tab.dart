@@ -31,8 +31,10 @@ class _ProfileTabState extends State<ProfileTab>
     return Column(
       children: [
         // 1. 탭바 메뉴 : _buildTabBar()
+        _buildTabBar(),
         // 2. 탭 컨텐츠 영역
-        // (확장영역사용) : _buildTabBarView()
+        // (확장영역사용-Expanded()) : _buildTabBarView()
+        Expanded(child: _buildTabBarView()),
       ],
     );
   } //// build ///
@@ -55,7 +57,10 @@ class _ProfileTabState extends State<ProfileTab>
 
   // [1] 탭바 위젯 리턴 메서드 : _buildTabBar()
   Widget _buildTabBar() {
+    // 탭바 위젯 리턴 ////
     return TabBar(
+      // 반드시 컨트롤로를 연결해줘야함!!! 중요!!!
+      controller: _tabController,
       // 탭바안에 탭이 2개!
       tabs: [
         Tab(
@@ -73,5 +78,16 @@ class _ProfileTabState extends State<ProfileTab>
   } /////////// _buildTabBar 메서드 ///////
 
   // [2] 탭바뷰 위젯 리턴 메서드 : _buildTabBarView()
-  Widget _buildTabBarView() {} /////////// _buildTabBarView 메서드 ///////
+  Widget _buildTabBarView() {
+    // 탭바뷰 위젯 리턴
+    return TabBarView(
+      // 반드시 컨트롤로를 연결해줘야함!!! 중요!!!
+      controller: _tabController,
+      // 탭개수가 2개이므로 2개의 탭바뷰를 구성함!
+      children: [
+        Container(color: Colors.blue,),
+        Container(color: Colors.yellow,),
+      ],
+    );
+  } /////////// _buildTabBarView 메서드 ///////
 } //// _ProfileTabState 클래스 /////////////
