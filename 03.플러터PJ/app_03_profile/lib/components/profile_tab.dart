@@ -15,6 +15,12 @@ class ProfileTab extends StatefulWidget {
   State<ProfileTab> createState() => _ProfileTabState();
 } //// ProfileTab 클래스 ///////////
 
+// 참고 : State<ProfileTab> 
+// 추상클래스<클래스형> -> 꺽쇠가로를 사용하는 형지정형식을
+// "제네릭" 이라고 부름! 어떤형이든지 이렇게 표현가능함
+// -> 지정된 형식의 내부type을 지정해주는 것이 제네릭이다!
+// 예) Map<String,String> actor = {"이름":"강동원","나이":"40"};
+
 // 실제 탭메뉴 구현 코드를 리턴하는 클래스
 class _ProfileTabState extends State<ProfileTab>
     with SingleTickerProviderStateMixin {
