@@ -15,7 +15,32 @@ class ProfileDrawer extends StatelessWidget {
       // 높이값 double.infinity는 높이채우기
       height: double.infinity,
       // 박스 배경색
-      color: Colors.orange.shade200,
+      color: Colors.blue,
+      // 메뉴 넣기
+      child: Column(
+        children: [
+          SizedBox(height: 50),
+          // Home 메뉴 /////
+          Row(
+            children: [
+              // 아이콘
+              Icon(
+                Icons.home,
+                color: Colors.white,
+              ),
+              SizedBox(width: 5), // 간격
+              // 텍스트
+              Text(
+                "Home",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
