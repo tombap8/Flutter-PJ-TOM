@@ -14,6 +14,8 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     // 필드설명과 입력양식폼은 수직으로 배치됨!
     return Column(
+      // 크로스축 정렬변경(왼쪽정렬:start)
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // 1. 필드설명
         Text(text),
@@ -31,25 +33,48 @@ class CustomTextFormField extends StatelessWidget {
           decoration: InputDecoration(
             // 2-3-1.입력내용 힌트 텍스트
             hintText: 'Enter $text',
+
             // 2-3-2.기본 TextFormField 디자인
             enabledBorder: OutlineInputBorder(
               // 테두리 디자인 설정하기
               borderRadius: BorderRadius.circular(20),
             ),
+
+            // 터치시/에러시/에러후터치시 상태에 대한 기본디자인은
+            // 밑줄형으로 되어 있으므로 이 디자인을 덮어써야
+            // 내가 원하는 디자인을 유지할 수 있다! 따라서 필수셋팅임!
+
             // 2-3-3.터치시(포커스갈때) TextFormField 디자인
             focusedBorder: OutlineInputBorder(
               // 테두리 디자인 설정하기
               borderRadius: BorderRadius.circular(20),  
+              // 테두리 색과 테두리 두께 변경하기
+              borderSide: BorderSide(
+                color: Colors.blue,
+                width: 3,
+              ),
             ),
+
             // 2-3-4.에러발생시 TextFormField 디자인
             errorBorder: OutlineInputBorder(
               // 테두리 디자인 설정하기
-              borderRadius: BorderRadius.circular(20),  
+              borderRadius: BorderRadius.circular(20),   
+              // 테두리 색과 테두리 두께 변경하기
+              borderSide: BorderSide(
+                color: Colors.red,
+                width: 5,
+              ),
             ),
+
             // 2-3-5.에러발생후 터치시 TextFormField 디자인
             focusedErrorBorder: OutlineInputBorder(
               // 테두리 디자인 설정하기
               borderRadius: BorderRadius.circular(20),  
+              // 테두리 색과 테두리 두께 변경하기
+              borderSide: BorderSide(
+                color: Colors.purple,
+                width: 10,
+              ), 
             ),
           ),
         ),

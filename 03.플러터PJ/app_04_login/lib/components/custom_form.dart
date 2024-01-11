@@ -26,9 +26,12 @@ class CustomForm extends StatelessWidget {
         children: [
           // 1. 이메일 입력양식(글자+입력폼)
           CustomTextFormField('Email'),
+
           SizedBox(height: mediumGap),
+
           // 2. 비밀번호 입력양식(글자+입력폼)
           CustomTextFormField('Password'),
+          
           SizedBox(height: largeGap),
           // 3. TextButton : 로그인버튼
           TextButton(
