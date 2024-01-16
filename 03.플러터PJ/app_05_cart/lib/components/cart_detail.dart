@@ -41,8 +41,8 @@ class _CartDetailState extends State<CartDetail> {
     "Tesla Model3",
     "Cessna 150",
   ];
-  // 상품가격 리스트 [ 가격, 조회수, 별수 ]
-  Map<String, List> selectedPrice = {
+  // 상품정보 리스트 [ 가격, 조회수, 별수 ]
+  Map<String, List> goodsInfo = {
     "Living bicycle": [699, 26, 5],
     "Honda motorcycle": [1700, 35, 7],
     "Tesla Model3": [7800, 98, 3],
@@ -163,7 +163,34 @@ class _CartDetailState extends State<CartDetail> {
 
   // 1. 이름/가격 위젯 만들기 메서드 : _buildNamePrice()
   Widget _buildNamePrice() {
-    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10.0),
+      child: Row(
+        // 메인축 정렬 양쪽끝(사이간격만 주기)
+        mainAxisAlignment: 
+        MainAxisAlignment.spaceBetween,
+        children: [
+          // 1.상품명 : selectedTit 리스트형 변수값 읽어옴
+          // sequenceNum의 순번값이 변경될때 이것도 업데이트됨!!!
+          Text(
+            selectedTit[sequenceNum],
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          // 2. 상품가격 : selectedPrice
+          Text(
+            // 달러($)는 특수문자니까 역슬래쉬를 같이 씀!
+            '\$${goodsInfo[selectedTit[sequenceNum]]?[0]}',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+      );
   } ////////// _buildNamePrice  메서드 //////////
 
   // 2. 별점/리뷰수 위젯 만들기 메서드 : _buildStarReview()
