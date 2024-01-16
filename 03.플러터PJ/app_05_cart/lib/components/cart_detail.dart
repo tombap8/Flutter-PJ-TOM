@@ -47,11 +47,38 @@ class _CartDetailState extends State<CartDetail> {
     "Cessna 150": [12400, 75, 6],
   };
 
-
-
-
+  // 빌드 재정의!!!
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        // 1.상품이미지 : _buildPicture()
+        _buildPicture(),
+        // 2.선택버튼 : _buildSelector() -> _buildSelectButton()
+        // 3.상품정보 : 상품명+상품가격+별점+리뷰수+색상옵션+버튼
+      ],
+    );
   }
+
+  // 1.상품이미지생성 메서드 : _buildPicture()
+  Widget _buildPicture() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: 
+      // 비율유지 박스내에 이미지를 넣는다!
+      AspectRatio(
+        aspectRatio: 5/3,
+        child: Image.asset(
+          // 위에 셋팅된 이미지를 호출!
+          // List형 변수의 순번으로 상태변경클래스 내부 변수를
+          // 사용하여 이 변수가 업데이트 되면 이미지도 변경됨!
+          selectedPic[sequenceNum],
+          // 비율박스에 이미지 맞게 채움설정
+          fit: BoxFit.cover,
+        ),
+        ),
+      );
+  } /////////// _buildPicture 메서드 ///////////
 } ///////////// _CartDetailState 클래스 /////////
+
+
