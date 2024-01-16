@@ -4,6 +4,7 @@
 // Stateful 위젯(StatefulWidget)으로 구성한다!!!
 // stf 단축키로 생성
 
+import 'package:app_05_cart/constants.dart';
 import 'package:flutter/material.dart';
 
 /// 상태관리위젯 상속한 메인 클래스 ///////
@@ -64,10 +65,10 @@ class _CartDetailState extends State<CartDetail> {
   Widget _buildPicture() {
     return Padding(
       padding: const EdgeInsets.all(16.0),
-      child: 
-      // 비율유지 박스내에 이미지를 넣는다!
-      AspectRatio(
-        aspectRatio: 5/3,
+      child:
+          // 비율유지 박스내에 이미지를 넣는다!
+          AspectRatio(
+        aspectRatio: 5 / 3,
         child: Image.asset(
           // 위에 셋팅된 이미지를 호출!
           // List형 변수의 순번으로 상태변경클래스 내부 변수를
@@ -76,9 +77,55 @@ class _CartDetailState extends State<CartDetail> {
           // 비율박스에 이미지 맞게 채움설정
           fit: BoxFit.cover,
         ),
-        ),
-      );
+      ),
+    );
   } /////////// _buildPicture 메서드 ///////////
+
+// 2.선택버튼생성 메서드 : _buildSelector()
+// -> _buildSelectButton() 호출
+  Widget _buildSelector() {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 30,
+        right: 30,
+        top: 10,
+        bottom: 30,
+      ),
+      child: Row(
+        // 진행방향 균일간격
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [],
+      ),
+    );
+  } //////////// _buildSelector 메서드 ////////
+
+  // 선택버튼만들기 메서드 //////////
+  Widget _buildSelectButton(int seq, IconData mIcon) {
+    // seq변수 : 버튼 클릭시 변경할 순번변수값 셋팅
+    // mIcon변수 : 버튼 아이콘
+    return Container(
+      width: 70,
+      height: 70,
+      decoration: BoxDecoration(
+        // 버튼 배경색상은 선택된것과 일반적인것으로 구분함
+        // 현재 버튼하고 선택버튼순번과 같으면 엑센트색 넣기
+        color: seq == sequenceNum ? kAccentColor : kSecondaryColor,
+        // 둥근 모서리 셋팅
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: IconButton(
+        icon: Icon(mIcon, color: Colors.black),
+        onPressed: () {
+          // 여기가 매우매우매우 중요함!!!
+          // 버튼 클릭시 sequenceNum 변수값을 업데이트함
+          // 그러면 이변수를 사용하는 모든 위젯이 업데이트됨!!!
+          // 상태변수를 업데이트 하는 방법 :
+          // ->  setState((){업데이트코드})
+          setState(() {
+            sequenceNum = seq;
+          });
+        },
+      ),
+    );
+  } ////////// _buildSelectButton 메서드 ////////
 } ///////////// _CartDetailState 클래스 /////////
-
-
