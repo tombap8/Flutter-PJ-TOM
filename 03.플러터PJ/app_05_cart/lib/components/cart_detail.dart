@@ -225,8 +225,8 @@ class _CartDetailState extends State<CartDetail> {
           // 여기에 for반복문을 쓰면 위젯을 반복할 수 있다!!!
           // 한계수가 별의 개수를 제어하므로
           // 셋팅된 별수 정보를 한계수에 넣어준다!
-          for (int i = 0; i < goodsInfo[selectedTit[sequenceNum]]?[2];i++) 
-          Icon(Icons.star, color: Colors.pink),
+          for (int i = 0; i < goodsInfo[selectedTit[sequenceNum]]?[2]; i++)
+            Icon(Icons.star, color: Colors.pink),
           // 사이간격 밀기
           Spacer(),
           // 리뷰수 보이기
@@ -245,6 +245,10 @@ class _CartDetailState extends State<CartDetail> {
 
   // 3. 옵션 위젯 만들기 메서드 : _buildOption()
   Widget _buildOption() {
+    // 선택색상정보 변수에 셋업하기!(해당타이틀명의 GoodsColor 맵)
+    dynamic selectedColor = 
+    goodsColor[selectedTit[sequenceNum]];
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: Column(
@@ -255,23 +259,22 @@ class _CartDetailState extends State<CartDetail> {
           Row(
             children: [
               // 둥근모양의 색상 아이콘 메서드 호출
-              _buildDetailIcon(Colors.black),
-              _buildDetailIcon(Colors.green),
-              _buildDetailIcon(Colors.orange),
-              _buildDetailIcon(Colors.grey),
-              _buildDetailIcon(Colors.white),
+              // 선택된 색상옵션은 리스트형으로
+              // for문으로 그 개수만큼 돌아준다!
+              for (int i = 0; i < selectedColor.length;i++)
+                _buildDetailIcon(selectedColor[i]),
             ],
           )
-        ],        
+        ],
       ),
-      );
+    );
   } ////////// _buildOption  메서드 //////////
 
   // 둥근 아이콘 만들기 함수
   Widget _buildDetailIcon(Color mColor) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
-      // 5. Stack의 첫 번째 Container 
+      // 5. Stack의 첫 번째 Container
       // 위젯위에 Positioned 위젯이 올라가는 형태
       // 스택위젯은 겹쳐지는 디자인을 할 때 사용함!
       // 스택은 아래로부터 위로 겹쳐져서 쌓이는 형태를 이름!
