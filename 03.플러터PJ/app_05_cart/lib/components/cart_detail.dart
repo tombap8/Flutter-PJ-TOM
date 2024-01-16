@@ -5,6 +5,7 @@
 // stf 단축키로 생성
 
 import 'package:app_05_cart/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// 상태관리위젯 상속한 메인 클래스 ///////
@@ -94,7 +95,13 @@ class _CartDetailState extends State<CartDetail> {
       child: Row(
         // 진행방향 균일간격
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [],
+        children: [
+          // 버튼 4개 생성하기
+          _buildSelectButton(0, Icons.directions_bike),
+          _buildSelectButton(1, Icons.motorcycle),
+          _buildSelectButton(2, CupertinoIcons.car_detailed),
+          _buildSelectButton(3, CupertinoIcons.airplane),
+        ],
       ),
     );
   } //////////// _buildSelector 메서드 ////////
