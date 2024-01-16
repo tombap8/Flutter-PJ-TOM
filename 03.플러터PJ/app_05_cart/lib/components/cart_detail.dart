@@ -167,8 +167,7 @@ class _CartDetailState extends State<CartDetail> {
       padding: const EdgeInsets.only(bottom: 10.0),
       child: Row(
         // 메인축 정렬 양쪽끝(사이간격만 주기)
-        mainAxisAlignment: 
-        MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // 1.상품명 : selectedTit 리스트형 변수값 읽어옴
           // sequenceNum의 순번값이 변경될때 이것도 업데이트됨!!!
@@ -190,14 +189,23 @@ class _CartDetailState extends State<CartDetail> {
           ),
         ],
       ),
-      );
+    );
   } ////////// _buildNamePrice  메서드 //////////
 
   // 2. 별점/리뷰수 위젯 만들기 메서드 : _buildStarReview()
   Widget _buildStarReview() {
-    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Row(
+        children: [
+          // 여기에 for반복문을 쓰면 위젯을 반복할 수 있다!!!
+          for (int i = 0; i < 7;i++) 
+          Icon(Icons.star, color: Colors.pink),
+        ],
+      ),
+    );
   } ////////// _buildStarReview  메서드 //////////
-  
+
   // 3. 옵션 위젯 만들기 메서드 : _buildOption()
   Widget _buildOption() {
     return Padding(padding: const EdgeInsets.only(bottom: 10.0));
@@ -207,5 +215,4 @@ class _CartDetailState extends State<CartDetail> {
   Widget _buildButton() {
     return Padding(padding: const EdgeInsets.only(bottom: 10.0));
   } ////////// _buildButton  메서드 //////////
-
 } ///////////// _CartDetailState 클래스 /////////
