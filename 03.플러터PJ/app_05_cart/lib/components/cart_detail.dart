@@ -58,7 +58,9 @@ class _CartDetailState extends State<CartDetail> {
         _buildPicture(),
         // 2.선택버튼 : _buildSelector() -> _buildSelectButton()
         _buildSelector(),
-        // 3.상품정보 : 상품명+상품가격+별점+리뷰수+색상옵션+버튼
+        // 3.상품정보 : _buildCartInfo()
+        // 상품명+상품가격+별점+리뷰수+색상옵션+버튼
+        _buildCartInfo(),
       ],
     );
   }
@@ -136,4 +138,47 @@ class _CartDetailState extends State<CartDetail> {
       ),
     );
   } ////////// _buildSelectButton 메서드 ////////
+
+  // 3.상품정보위젯 생성 메서드 : _buildCartInfo()
+  // 상품명+상품가격+별점+리뷰수+색상옵션+버튼
+  Widget _buildCartInfo() {
+    return Padding(
+      padding: const EdgeInsets.all(30.0),
+      child: Column(
+        // 진행방향의 수직축(crossAxis)의 시작부분부터 정렬(왼쪽끝)
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 1. 이름/가격 : _buildNamePrice()
+          _buildNamePrice(),
+          // 2. 별점/리뷰수 : _buildStarReview()
+          _buildStarReview(),
+          // 3. 옵션 : _buildOption()
+          _buildOption(),
+          // 4. 버튼 : _buildButton()
+          _buildButton(),
+        ],
+      ),
+    );
+  } /////////////// _buildCartInfo 메서드 /////////
+
+  // 1. 이름/가격 위젯 만들기 메서드 : _buildNamePrice()
+  Widget _buildNamePrice() {
+    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+  } ////////// _buildNamePrice  메서드 //////////
+
+  // 2. 별점/리뷰수 위젯 만들기 메서드 : _buildStarReview()
+  Widget _buildStarReview() {
+    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+  } ////////// _buildStarReview  메서드 //////////
+  
+  // 3. 옵션 위젯 만들기 메서드 : _buildOption()
+  Widget _buildOption() {
+    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+  } ////////// _buildOption  메서드 //////////
+
+  // 4. 버튼 위젯 만들기 메서드 : _buildButton()
+  Widget _buildButton() {
+    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+  } ////////// _buildButton  메서드 //////////
+
 } ///////////// _CartDetailState 클래스 /////////
