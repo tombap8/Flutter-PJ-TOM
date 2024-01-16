@@ -313,14 +313,39 @@ class _CartDetailState extends State<CartDetail> {
   Widget _buildButton() {
     return Align(
       child: TextButton(
-        onPressed: (){
-          
+        onPressed: () {
+          // 장바구니 담기 확인 메시지창
+          // 쿠퍼티노 다이얼로그 사용!
+          showCupertinoDialog(
+            // 앱현재 통합정보 context
+            context: context,
+            builder: (context) => CupertinoAlertDialog(
+              // 대화창 메시지
+              title: Text('장바구에 담았습니다!'),
+              // 팝업창 버튼 터치시 동작액션 : 닫기
+              actions: [
+                // 쿠퍼티노 액션 담당 클래스 생성자함수
+                CupertinoDialogAction(
+                  onPressed: () {
+                    // pop() 으로 context를 보내면
+                    // 현재 뜬 대화창이 닫힌다!
+                    Navigator.pop(context);
+                  },
+                  // 대화창 구성버튼
+                  child: Text(
+                    "확인",
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ],
+            ),
+          );
         },
         style: TextButton.styleFrom(
           // 배경색
           backgroundColor: kAccentColor,
           // 최소사이즈
-          minimumSize: Size(300,50),
+          minimumSize: Size(300, 50),
           // 둥근모서리
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
