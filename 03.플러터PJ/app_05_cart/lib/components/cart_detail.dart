@@ -203,6 +203,17 @@ class _CartDetailState extends State<CartDetail> {
           // 셋팅된 별수 정보를 한계수에 넣어준다!
           for (int i = 0; i < goodsInfo[selectedTit[sequenceNum]]?[2];i++) 
           Icon(Icons.star, color: Colors.pink),
+          // 사이간격 밀기
+          Spacer(),
+          // 리뷰수 보이기
+          Text(
+            // 달러($)는 특수문자니까 역슬래쉬를 같이 씀!
+            'review(${goodsInfo[selectedTit[sequenceNum]]?[1]})',
+            style: TextStyle(
+              fontSize: 18,
+              color: Colors.blue,
+            ),
+          ),
         ],
       ),
     );
@@ -210,8 +221,59 @@ class _CartDetailState extends State<CartDetail> {
 
   // 3. 옵션 위젯 만들기 메서드 : _buildOption()
   Widget _buildOption() {
-    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("Color Options"),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              // 둥근모양의 색상 아이콘 메서드 호출
+              _buildDetailIcon(Colors.black),
+              _buildDetailIcon(Colors.green),
+              _buildDetailIcon(Colors.orange),
+              _buildDetailIcon(Colors.grey),
+              _buildDetailIcon(Colors.white),
+            ],
+          )
+        ],        
+      ),
+      );
   } ////////// _buildOption  메서드 //////////
+
+  // 둥근 아이콘 만들기 함수
+  Widget _buildDetailIcon(Color mColor) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      // 5. Stack의 첫 번째 Container 위젯위에 Positioned 위젯이 올라가는 형태
+      child: Stack(
+        children: [
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(),
+              shape: BoxShape.circle,
+            ),
+          ),
+          Positioned(
+            left: 5,
+            top: 5,
+            child: ClipOval(
+              child: Container(
+                color: mColor,
+                width: 40,
+                height: 40,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
 
   // 4. 버튼 위젯 만들기 메서드 : _buildButton()
   Widget _buildButton() {
