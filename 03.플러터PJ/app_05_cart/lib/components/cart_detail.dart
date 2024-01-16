@@ -246,8 +246,7 @@ class _CartDetailState extends State<CartDetail> {
   // 3. 옵션 위젯 만들기 메서드 : _buildOption()
   Widget _buildOption() {
     // 선택색상정보 변수에 셋업하기!(해당타이틀명의 GoodsColor 맵)
-    dynamic selectedColor = 
-    goodsColor[selectedTit[sequenceNum]];
+    dynamic selectedColor = goodsColor[selectedTit[sequenceNum]];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
@@ -261,7 +260,7 @@ class _CartDetailState extends State<CartDetail> {
               // 둥근모양의 색상 아이콘 메서드 호출
               // 선택된 색상옵션은 리스트형으로
               // for문으로 그 개수만큼 돌아준다!
-              for (int i = 0; i < selectedColor.length;i++)
+              for (int i = 0; i < selectedColor.length; i++)
                 _buildDetailIcon(selectedColor[i]),
             ],
           )
@@ -312,6 +311,26 @@ class _CartDetailState extends State<CartDetail> {
 
   // 4. 버튼 위젯 만들기 메서드 : _buildButton()
   Widget _buildButton() {
-    return Padding(padding: const EdgeInsets.only(bottom: 10.0));
+    return Align(
+      child: TextButton(
+        onPressed: (){
+          
+        },
+        style: TextButton.styleFrom(
+          // 배경색
+          backgroundColor: kAccentColor,
+          // 최소사이즈
+          minimumSize: Size(300,50),
+          // 둥근모서리
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
+          ),
+        ),
+        child: Text(
+          'Add to Cart',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   } ////////// _buildButton  메서드 //////////
 } ///////////// _CartDetailState 클래스 /////////
