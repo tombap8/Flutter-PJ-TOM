@@ -48,6 +48,30 @@ class _CartDetailState extends State<CartDetail> {
     "Tesla Model3": [7800, 98, 3],
     "Cessna 150": [12400, 75, 6],
   };
+  // 상품색상 리스트
+  Map<String, List> goodsColor = {
+    "Living bicycle": [
+      Colors.red,
+      Colors.blue,
+    ],
+    "Honda motorcycle": [
+      Colors.grey.shade400,
+      Colors.purple,
+      Colors.blue,
+    ],
+    "Tesla Model3": [
+      Colors.white,
+      Colors.black,
+      Colors.grey.shade600,
+      Colors.pink,
+    ],
+    "Cessna 150": [
+      Colors.white,
+      Colors.yellow,
+      Colors.blueAccent,
+      Colors.blueGrey,
+    ],
+  };
 
   // 빌드 재정의!!!
   @override
@@ -247,21 +271,29 @@ class _CartDetailState extends State<CartDetail> {
   Widget _buildDetailIcon(Color mColor) {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
-      // 5. Stack의 첫 번째 Container 위젯위에 Positioned 위젯이 올라가는 형태
+      // 5. Stack의 첫 번째 Container 
+      // 위젯위에 Positioned 위젯이 올라가는 형태
+      // 스택위젯은 겹쳐지는 디자인을 할 때 사용함!
+      // 스택은 아래로부터 위로 겹쳐져서 쌓이는 형태를 이름!
+      // 내부에 겹쳐질 위젯은 Positioned() 위젯을 사용함
+      // 이 위젯은 웹에서 absolute 포지션과 유사함!(top,left 사용가능)
       child: Stack(
         children: [
           Container(
             width: 50,
             height: 50,
+            // 둥근 디자인
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(),
               shape: BoxShape.circle,
             ),
           ),
+          // 겹쳐질 위젯 넣기!
           Positioned(
             left: 5,
             top: 5,
+            // ClipOval() 위젯 - 둥근모양위젯(잘라줌)
             child: ClipOval(
               child: Container(
                 color: mColor,
