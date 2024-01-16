@@ -199,7 +199,9 @@ class _CartDetailState extends State<CartDetail> {
       child: Row(
         children: [
           // 여기에 for반복문을 쓰면 위젯을 반복할 수 있다!!!
-          for (int i = 0; i < 7;i++) 
+          // 한계수가 별의 개수를 제어하므로
+          // 셋팅된 별수 정보를 한계수에 넣어준다!
+          for (int i = 0; i < goodsInfo[selectedTit[sequenceNum]]?[2];i++) 
           Icon(Icons.star, color: Colors.pink),
         ],
       ),
