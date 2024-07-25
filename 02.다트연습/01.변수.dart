@@ -1,7 +1,7 @@
 void main(List<String> args) {
   // main 메서드를 가장 먼저 호출함!
 
-  // 다트언어는 변수형을 자동으로 
+  // 다트언어는 변수형을 자동으로
   // 인식하는 선언이 있음 -> 타입추론
   // 1. var
   var myHome = "내집이야~!";
@@ -11,8 +11,8 @@ void main(List<String> args) {
   myHome = "너의집도 크다!";
   print(myHome);
 
-  // 2. dynamic 
-  // -> var와 비슷하지만 나중에 재할당시 
+  // 2. dynamic
+  // -> var와 비슷하지만 나중에 재할당시
   // 처음 할당한 값과 다른형의 값을 넣어도 괜찮다!
   dynamic myId = "hhh2345";
 
@@ -22,16 +22,14 @@ void main(List<String> args) {
 
   print("너의 아이디는 $myId");
 
-
   // [ 문자형 출력방법 : '${코드}' 또는 '$변수' ]
 
-
   // 다트언어는 변수의 형을 선언함이 기본이다!
-  // 1. 숫자형 : 
+  // 1. 숫자형 :
   // int - 정수 / double - 실수 / num - 정수/실수
   int number1 = 2023;
   // number1 = 3.2;
-  // number1 = '하하'; 
+  // number1 = '하하';
   //-> 처음 선언한 형으로만 할당가능!
   print(number1);
 
@@ -56,19 +54,23 @@ void main(List<String> args) {
   // 4. 콜렉션 : 묶음데이터
   // List / Set / Map
   // 4-1. List 형 - 배열과 유사함
-  List<String> we = ['너','나','우리'];
-  print(we[2]+'는 모두 친구입니다!');
+  List<String> we = ['너', '나', '우리'];
+  print(we[2] + '는 모두 친구입니다!');
+  we.addAll(["형", "동생", "누나", "언니"]);
+  we.add("거지");
+  print(we);
   print(we.length);
 
-  // 4-2. Set형 - 
+  //  제네릭(generic)이란 데이터의 타입(data type)을 일반화한다(generalize)는 것을 의미
+
+  // 4-2. Set형 -
   // ->순서가 없고 중복되지 않는 데이터집합
   // ->순서가 없으므로 호출해서 사용코자 할때는 List형으로 변환
   // 후 사용한다! -> Set형변수.toList()
 
-
   // Set<int> evens = {2,4,6,8,10,4};
   // Set<dynamic> evens = {2,4,6,8,10,4,'짝수'};
-  var evens = {2,4,6,8,10,4,'짝수'};
+  var evens = {2, 4, 6, 8, 10, 4, '짝수'};
   print(evens);
   // 리스트형으로 변환
   print(evens.toList());
@@ -76,9 +78,12 @@ void main(List<String> args) {
   print(evens.toList()[3]);
 
   // 4-3. Map형 - 데이터에 라벨링된 데이터 집합(객체와 유사)
-  Map<String,String> actor = {"이름":"강동원","나이":"40"};
-  print(actor);
-
+  Map<String, String> actor = {"이름": "강동원", "나이": "40"};
+  List<Map> actor2 = [
+    {"이름": "강동원", "나이": "40"},
+    <String,String>{"이름": "장혁", "나이": "50"}
+  ];
+  print("$actor ${actor2[1]['이름']}");
 
   // [ 다트의 형변환 (Casting) ]
   // -> 특정 데이터형에서 다른 형으로 변환하는것을
@@ -97,6 +102,4 @@ void main(List<String> args) {
   // 문자형숫자를 캐스팅하여 숫자로계산하기
   num result = 111 + int.parse(stNum);
   print("111 + 777 = $result");
-
-
 }
